@@ -5,7 +5,7 @@ extends Panel
 # var a=2
 # var b="textvar"
 func _on_button_pressed():
-	    get_node("Label").set_text("HELLO!")
+	get_tree().change_scene("res://Node2D.scn")
 	
 func _ready():
 	# Called every time the node is added to the scene.
