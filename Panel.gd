@@ -1,18 +1,16 @@
 
 extends Panel
 
-# member variables here, example:
-# var a=2
-# var b="textvar"
 func _on_button_pressed():
 	get_tree().change_scene("res://Node2D.scn")
 	
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	get_node("PlayButton").connect("pressed",self,"_on_button_pressed")
+	set_process_input(true)
 	
-	
-	pass
+func _input(event):
+   if(event.type == InputEvent.KEY && event.is_pressed()):
+      if(event.scancode == KEY_ESCAPE):
+         get_tree().quit() 
 
 
