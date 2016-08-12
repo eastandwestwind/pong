@@ -14,11 +14,17 @@ func _jjfduhf():
 	if visible<=text.length():
 		label.set_text(text.substr(0,visible))
 		if text.substr(visible-1,1)==" ":
+			time.set_wait_time(.22)
 			typesound.play("space")
-		else:
+		elif text.substr(visible-1,1) in ["a","f","x","l","a","p","r","d","c","i","o"]:
+			time.set_wait_time(.11)
+			typesound.play("key")
+		else: 
+			time.set_wait_time(.18)
 			typesound.play("key")
 			
 	if visible >= text.length()+4:
+		typesound.play("bell")
 		time.stop()
 		icon.set_rotation_deg(-20)
 	
