@@ -23,11 +23,12 @@ func _jjfduhf():
 			time.set_wait_time(.18)
 			typesound.play("key")
 			
-	if visible >= text.length()+4:
+	if visible == text.length()+4:
 		typesound.play("bell")
-		time.stop()
 		icon.set_rotation_deg(-20)
-	
+	if visible == text.length()+10:
+		get_tree().change_scene("res://Panel.scn")
+
 
 
 func _ready():
