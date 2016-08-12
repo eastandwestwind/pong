@@ -10,7 +10,7 @@ func _on_button_pressed():
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	get_node("Button").connect("pressed",self,"_on_button_pressed")
+	get_node("PlayButton").connect("pressed",self,"_on_button_pressed")
 	
 	
 	pass
