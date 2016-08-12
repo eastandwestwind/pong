@@ -8,6 +8,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	pad_size = get_node("left").get_texture().get_size()
 	set_process(true)
+	set_process_input(true)
 
 var ball_speed = 200
 #direction of the ball (normal vector)
@@ -54,10 +55,18 @@ func _process(delta):
 	
 	get_node("right").set_pos(right_pos)
 	
-	
-	
-	
-	
+func _input(event):
+	if(event.type == InputEvent.SCREEN_DRAG):
+		var nodeToMove
+		if (event.x < 200):
+			nodeToMove = "left"
+		elif (event.x > 640-200):
+			nodeToMove = "right"
+		else:
+			return
+		var right_pos = get_node(nodeToMove).get_pos()
+		right_pos.y += event.relative_y
+		get_node(nodeToMove).set_pos(right_pos)
 	
 	
 
